@@ -37,8 +37,8 @@ app.get("/chats",async (req,res) => {
 })
 
 // new route post
-app.get("/chats/new",(req,res)=>{
-
+app.get("/chats/new"(req,res)=>{
+  
 })
 
 

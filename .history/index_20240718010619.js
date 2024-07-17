@@ -36,10 +36,7 @@ app.get("/chats",async (req,res) => {
  res.render("index.ejs",{chats})
 })
 
-// new route post
-app.get("/chats/new",(req,res)=>{
-
-})
+// new route
 
 
 
