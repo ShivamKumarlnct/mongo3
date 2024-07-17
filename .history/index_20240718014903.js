@@ -53,12 +53,8 @@ let newChat=new Chat({
   message:message,
   created_at:new Date(),
 });
-newChat
-.save()
-.then((res)=>{
-  console.log("chat was save");
-})
-.catch((err) => {
+newChat.save()
+.then(res=>{console.log("chat was save")}).catch((err)=>{
   console.log(err);
 })
 res.send("working");

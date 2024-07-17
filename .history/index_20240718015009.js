@@ -58,7 +58,7 @@ newChat
 .then((res)=>{
   console.log("chat was save");
 })
-.catch((err) => {
+.catch((err)=>{
   console.log(err);
 })
 res.send("working");

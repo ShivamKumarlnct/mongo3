@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const Chat = require("./models/chat.js");
-const { log } = require("console");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -53,15 +52,8 @@ let newChat=new Chat({
   message:message,
   created_at:new Date(),
 });
-newChat
-.save()
-.then((res)=>{
-  console.log("chat was save");
-})
-.catch((err) => {
-  console.log(err);
-})
-res.send("working");
+newChat.save().then(res=>{console.log("chat was save")}).catch(())
+res.send("working")
 });
 
 
