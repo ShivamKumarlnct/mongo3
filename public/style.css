@@ -1,0 +1,22 @@
+body{
+    margin:20px 80px 30px 80px;
+}
+
+.chat{
+    background-color: rgb(176, 224, 224);
+    padding: 20px;
+    border-radius: 2rem;
+    border: 1px solid black;
+
+}
+.chat:hover{
+     background-color: rgb(163, 198, 198);
+    padding: 15px;
+    border-radius: 4rem;
+    border: 1.2px solid rgb(79, 67, 67);
+}
+.message{
+    font-weight: bold;
+    background-color: rgb(168, 225, 234);
+    border-radius: 1rem;
+}
