@@ -57,6 +57,7 @@ newChat
 .save()
 .then((res)=>{
   console.log("chat was save");
+  // res.redirect("/chats");
 
 })
 .catch((err) => {

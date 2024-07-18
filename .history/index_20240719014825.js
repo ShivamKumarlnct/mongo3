@@ -19,16 +19,16 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }
 
-// let chat1 = new Chat({
-//   from: "neha", 
-//   to: "shivam",
-//   message: "i l u",
-//   created_at: new Date(), 
-// });
+let chat1 = new Chat({
+  from: "neha", 
+  to: "shivam",
+  message: "i l u",
+  created_at: new Date(), 
+});
 
-// chat1.save().then((res) => {
-//   console.log(res);
-// }).catch(err => console.log(err)); 
+chat1.save().then((res) => {
+  console.log(res);
+}).catch(err => console.log(err)); 
 
 // Index routes
 app.get("/chats",async (req,res) => {
@@ -45,7 +45,7 @@ res.render("new.ejs")
 // create route
 app.post("/chats",(req,res)=>{
 
-let { from,to,message}=req.body;
+let {from,to,message}=req.body;
 
 let newChat=new Chat({
   from:from,
@@ -57,14 +57,11 @@ newChat
 .save()
 .then((res)=>{
   console.log("chat was save");
-
 })
 .catch((err) => {
   console.log(err);
-});
-
-res.redirect("/chats");
-
+})
+res.("working");
 });
 
 

@@ -45,7 +45,7 @@ res.render("new.ejs")
 // create route
 app.post("/chats",(req,res)=>{
 
-let { from,to,message}=req.body;
+let {from,to,message}=req.body;
 
 let newChat=new Chat({
   from:from,
@@ -57,6 +57,7 @@ newChat
 .save()
 .then((res)=>{
   console.log("chat was save");
+  res.redirect("/chats");
 
 })
 .catch((err) => {
