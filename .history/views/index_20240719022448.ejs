@@ -21,8 +21,7 @@
         </div>
         <p>recived:<%=chat.to%></p>
         <hr/>
-<p>TIME:<%= chat.created_at.toString().split(" ")[4] %></p>
-<p>DATE:<%= chat.created_at.toString().split(" ").slice(0,4).join("/") %></p>
+<p><%= chat.created  %></p>
     </div>
     <hr>
 <%}%>
