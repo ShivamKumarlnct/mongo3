@@ -83,7 +83,7 @@ app.delete("/chats/:id",async (req,res)=>{
     {runValidators:true,new:true},
   );
   console.log(chatdelete);
-  res.redirect("/chats");
+  res
   
 
 });

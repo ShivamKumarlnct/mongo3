@@ -76,15 +76,12 @@ app.put("/chats/:id",async (req,res)=>{
   console.log(updatechat);
   res.redirect("/chats");
 });
-// -----------------delete---------------------------------
-app.delete("/chats/:id",async (req,res)=>{
+// --------------------------------------------------
+app.delete("/chats/:id",(req,res)=>{
   let {id}=req.params;
- let chatdelete=await Chat.findByIdAndDelete(id,    
+ let chatdelete= Chat.findByIdAndDelete(id,    
     {runValidators:true,new:true},
   );
-  console.log(chatdelete);
-  res.redirect("/chats");
-  
 
 });
 
