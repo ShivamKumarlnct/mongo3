@@ -56,12 +56,7 @@ app.post("/chats", async (req, res) => {
     res.redirect("/chats");
  
 });
-// ---show routes------------
-app.get("/chats/:id",async(req,res,next)=>{
-  let {id}=req.params;
-  let Chat=await Chat.findById(id);
-  res.render("edit.ejs",{Chat});
-})
+
 
 
 // ----------------------------------------------
