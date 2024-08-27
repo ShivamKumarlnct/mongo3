@@ -37,7 +37,7 @@ app.get("/chats", async (req, res) => {
 // New chat form route--------------------------------
 app.get("/chats/new", (req, res) => {
   throw new ExpressError(202,"page not found");
-  res.render("new.ejs");
+  res.render("new");
 });
 
 // Create route

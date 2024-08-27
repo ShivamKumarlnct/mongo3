@@ -1,0 +1,1 @@
+class ExpressError extend

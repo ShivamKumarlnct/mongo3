@@ -36,8 +36,7 @@ app.get("/chats", async (req, res) => {
 // ----------------------------------
 // New chat form route--------------------------------
 app.get("/chats/new", (req, res) => {
-  throw new ExpressError(202,"page not found");
-  res.render("new.ejs");
+  res.render("new");
 });
 
 // Create route
@@ -62,11 +61,6 @@ app.get("/chats/:id",async(req,res,next)=>{
   let {id}=req.params;
   let Chat=await Chat.findById(id);
   res.render("edit.ejs",{Chat});
-})
-app.use((err,req,res,next)=>{
-  let{status=500,message="some error"}=err;
-  res.status(status).send(message);
-  // next();
 })
 
 
