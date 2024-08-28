@@ -6,7 +6,7 @@ const Chat = require("./models/chat.js");
 const { log } = require("console");
 const methodOverride=require("method-override");
 const ExpressError=require("./ExpressError");
-const chat = require("./models/chat.js");
+const Chat = require("./models/chat.js");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -59,16 +59,11 @@ app.post("/chats", async (req, res,next) => {
   next(err);
  }
    
-});function asyncWrap(fn) {
-  return function(req,res,next){
-  fn(req,res,next).catch(err);
-  }
-};
+});
 function asyncWrap(fn) {
-  return function(req,res,next){
-  fn(req,res,next).catch(err);
-  }
-};
+  return 
+  
+}
 //----show routes---this is for middleware---------
 app.get("/chats/:id",async(req,res,next)=>{
   try{
