@@ -71,7 +71,7 @@ app.get("/chats/:id",async(req,res,next)=>{
     res.render("edit.ejs",{Chat});
 
   }catch(err){
-    next(err);
+    
   }
  
 })

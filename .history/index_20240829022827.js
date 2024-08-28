@@ -59,10 +59,9 @@ app.post("/chats", async (req, res,next) => {
  }
    
 });
-//----show routes---this is for middleware---------
+// ---show routes---this is for middleware---------
 app.get("/chats/:id",async(req,res,next)=>{
-  try{
- let {id}=req.params;
+  let {id}=req.params;
   let Chat=await Chat.findById(id);
   if(!Chat){
       next(new ExpressError(202,"chat not found"));
@@ -70,10 +69,6 @@ app.get("/chats/:id",async(req,res,next)=>{
   }
     res.render("edit.ejs",{Chat});
 
-  }catch(err){
-    next(err);
-  }
- 
 })
 
 app.use((err,req,res,next)=>{
@@ -106,8 +101,6 @@ app.put("/chats/:id",async (req,res)=>{
   );
   console.log(updatechat);
   res.redirect("/chats");
-  }catch(err){
-    next(err);
   }
  
 });

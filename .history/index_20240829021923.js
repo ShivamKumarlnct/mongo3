@@ -52,17 +52,18 @@ app.post("/chats", async (req, res,next) => {
     created_at: new Date(),
   });
   await newChat.save();
-  res.redirect("/chats");
+  res.redirect("/chats")
 
- }catch(err){
-  next(err);
+ }catch{
+
  }
-   
+   newChat.save();
+    console.log("Chat was saved");
+    res.redirect("/chats");
 });
-//----show routes---this is for middleware---------
+// ---show routes---this is for middleware---------
 app.get("/chats/:id",async(req,res,next)=>{
-  try{
- let {id}=req.params;
+  let {id}=req.params;
   let Chat=await Chat.findById(id);
   if(!Chat){
       next(new ExpressError(202,"chat not found"));
@@ -70,10 +71,6 @@ app.get("/chats/:id",async(req,res,next)=>{
   }
     res.render("edit.ejs",{Chat});
 
-  }catch(err){
-    next(err);
-  }
- 
 })
 
 app.use((err,req,res,next)=>{
@@ -86,19 +83,15 @@ app.use((err,req,res,next)=>{
 // ----------------------------------------------
 // Edit route-----------------------------------
 app.get("/chats/:id/edit", async (req, res) => {
-  try{
- let { id } = req.params;
+  let { id } = req.params;
     let chat = await Chat.findById(id);
     res.render("edit", { chat });
-  }catch(err){
-    next(err);
-  }
+  
 });
 
 // update route
 app.put("/chats/:id",async (req,res)=>{
-  try{
-     let {id}=req.params;
+  let {id}=req.params;
   let {message:newmsg}=req.body;
   let updatechat= await Chat.findByIdAndUpdate(id,
     {message:newmsg},
@@ -106,10 +99,6 @@ app.put("/chats/:id",async (req,res)=>{
   );
   console.log(updatechat);
   res.redirect("/chats");
-  }catch(err){
-    next(err);
-  }
- 
 });
 // -----------------delete---------------------------------
 app.delete("/chats/:id",async (req,res)=>{
