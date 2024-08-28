@@ -61,12 +61,7 @@ app.post("/chats", async (req, res) => {
 app.get("/chats/:id",async(req,res,next)=>{
   let {id}=req.params;
   let Chat=await Chat.findById(id);
-  if(!Chat){
-      next(new ExpressError(202,"chat not found"));
-
-  }
-    res.render("edit.ejs",{Chat});
-
+  res.render("edit.ejs",{Chat});
 })
 
 app.use((err,req,res,next)=>{

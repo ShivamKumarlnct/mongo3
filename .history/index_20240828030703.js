@@ -62,7 +62,7 @@ app.get("/chats/:id",async(req,res,next)=>{
   let {id}=req.params;
   let Chat=await Chat.findById(id);
   if(!Chat){
-      next(new ExpressError(202,"chat not found"));
+      throw new ExpressError(202,"page not found");
 
   }
     res.render("edit.ejs",{Chat});
