@@ -94,7 +94,7 @@ console.log(err.name);
 if(err.name==="ValidationError")
 {
 // console.log("this was a validationerror");
-err=handleValidationErr(err);
+
 }
 next(err);
 

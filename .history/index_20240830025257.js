@@ -86,15 +86,15 @@ app.get("/chats/:id",asyncWrap(async(req,res,next)=>{
 })
 );
 const handleValidationErr=(err)=>{
-  console.log("Validation ErrorOccured");
-  return err;
+  console.log("Validation ErrorOcc");
+  
 }
 app.use((err,req,res,next)=>{
 console.log(err.name);
 if(err.name==="ValidationError")
 {
-// console.log("this was a validationerror");
-err=handleValidationErr(err);
+console.log("this was a validationerror");
+
 }
 next(err);
 

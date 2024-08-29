@@ -85,20 +85,6 @@ app.get("/chats/:id",asyncWrap(async(req,res,next)=>{
  
 })
 );
-const handleValidationErr=(err)=>{
-  console.log("Validation ErrorOccured");
-  return err;
-}
-app.use((err,req,res,next)=>{
-console.log(err.name);
-if(err.name==="ValidationError")
-{
-// console.log("this was a validationerror");
-err=handleValidationErr(err);
-}
-next(err);
-
-});
 
 app.use((err,req,res,next)=>{
   let{status=500,message="some error"}=err;
@@ -153,7 +139,11 @@ app.delete("/chats/:id",async (req,res)=>{
 app.get("/", (req, res) => {
   res.send("working");
 });
+app.use((err,req,res)=>{
+console.log(err.name);
+if(err.name==="Validation")
 
+});
 
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
