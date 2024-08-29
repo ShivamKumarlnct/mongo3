@@ -87,7 +87,7 @@ app.get("/chats/:id",asyncWrap(async(req,res,next)=>{
 );
 const handleValidationErr=(err)=>{
   console.log("Validation ErrorOccured");
-  // console.dir(err);
+  console.dir(err);
   return err;
 }
 app.use((err,req,res,next)=>{
