@@ -70,7 +70,7 @@ function asyncWrap(fn) {
   }
 };
 //----show routes---this is for middleware---------
-app.get("/chats/:id",asyncWrap(async(req,res,next)=>{
+app.get("/chats/:id",async(req,res,next)=>{
   
  let {id}=req.params;
   let Chat=await Chat.findById(id);
@@ -80,10 +80,11 @@ app.get("/chats/:id",asyncWrap(async(req,res,next)=>{
   }
     res.render("edit.ejs",{Chat});
 
-  
+  catch(err){
+    next(err);
+  }
  
 })
-);
 
 app.use((err,req,res,next)=>{
   let{status=500,message="some error"}=err;
